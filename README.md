@@ -6,6 +6,10 @@
 * Version : 1.2
 * WWW : http://www.ultragreen.net/projects/methodic
 
+
+[![Build Status](https://travis-ci.org/lecid/methodic.png?branch=master)](https://travis-ci.org/lecid/methodic) [![CodeClimate](https://codeclimate.com/github/lecid/methodic.png)](https://codeclimate.com/github/lecid/methodic)
+
+
 ## Description 
 
 Methodic is a macro-like utility to help test, validate, control options passed by an Hash param to a method, it could help you to merge with defaults values, 
