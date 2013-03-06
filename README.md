@@ -14,7 +14,8 @@ It raise explained exceptions and return false if the validations steps failed.
 ## Installation
 
 In a valid Ruby environment :
-Ã¨Ã```
+
+```
    $ sudo zsh
    # gem ins methodic
 ```
@@ -26,6 +27,7 @@ In a valid Ruby environment :
 ## Examples
 
 ### Without known options control
+
 ```ruby
   require 'rubygems'                                                                                                                                                                             
   require 'methodic'
@@ -83,7 +85,7 @@ In a valid Ruby environment :
 
 * Make your condition like
 
-
+```ruby
    aCond = Proc::new do |option| 
            case options
              when .... then ...
@@ -91,7 +93,7 @@ In a valid Ruby environment :
              else ...
            end
    end
- 
+```
 
 
 ## Copyright
