@@ -1,32 +1,32 @@
-=Methodic
+# Methodic
 
-== Content
+## Content
 
-Author:: Romain GEORGES <romain@ultragreen.net> 
-Version:: 1.2
-WWW:: http://www.ultragreen.net/projects/methodic
+* Author : Romain GEORGES <romain@ultragreen.net> 
+* Version : 1.2
+* WWW : http://www.ultragreen.net/projects/methodic
 
-== Description 
+## Description 
 
 Methodic is a macro-like utility to help test, validate, control options passed by an Hash param to a method, it could help you to merge with defaults values, 
 It raise explained exceptions and return false if the validations steps failed.
 
-== Installation
+## Installation
 
 In a valid Ruby environment :
-
+Ã¨Ã```
    $ sudo zsh
    # gem ins methodic
-
-== Implementation 
+```
+## Implementation 
 
 * [Methodic]
 * [Methodic::Options]
 
-== Example
+## Examples
 
-=== Without known options control
-
+### Without known options control
+```ruby
   require 'rubygems'                                                                                                                                                                             
   require 'methodic'
   [...]                                                                                                                                                                                          
@@ -45,9 +45,11 @@ In a valid Ruby environment :
     # processing method                                                                                                                                                                          
   end                                                                                                                                                                                    
   [...]  
+```
 
-=== With known options control
+### With known options control
 
+```ruby
   require 'rubygems'                                                                                                                                                                             
   require 'methodic'
   [...]                                                                                                                                                                                          
@@ -67,8 +69,9 @@ In a valid Ruby environment :
     # processing method                                                                                                                                                                          
   end                                                                                                                                                                                    
   [...]  
+```
 
-=== Remarque about conditions 
+### Remarque about conditions 
 
 
 * Condition MUST :
@@ -91,7 +94,7 @@ In a valid Ruby environment :
  
 
 
-== Copyright
+## Copyright
 
 <pre>Methodic (c) 2012-2013 Romain GEORGES <romain@ultragreen.net> for Ultragreen Software </pre>
 
