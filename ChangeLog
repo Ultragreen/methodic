@@ -1,0 +1,21 @@
+methodic :
+- initial dev. version
+ - version 0.1 (unstable)
+	Romain GEORGES
+- initial finished release
+ - version 0.2 (testing, released)
+	Romain GEORGES
+- documented, specified and tested first production release
+ - version 1.0 (RC)
+	Romain GEORGES
+   - WARN : DEPRECATED : (NO COMPATIBILITY) method #specify_default_value_of become #specify_default_value
+   - WARN : DEPRECATED : (NO COMPATIBILITY) method #specify_defaults_values_of become #specify_defaults_values
+   - NEW : validate_known_options flag in Mehodic::get_options (second args)
+   - NEW : #specify_known_option and #specify_known_options for exhaustive options control (see manual)
+- patched version
+ - version 1.1 (RC2)
+	Romain GEORGES
+- stable version ( production ready)
+ - version 1.2 (stable)
+	Romain GEORGES
+   - NEW : conditions support see manual

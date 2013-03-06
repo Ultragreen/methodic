@@ -1,0 +1,7 @@
+How to install methodic ?
+=========================
+
+Please install the gem version via RubyGems : 
+
+$ su -
+# gem ins methodic
