@@ -5,7 +5,6 @@ require 'rake'
 require "rake/clean"
 require "rubygems/package_task"
 require "rdoc/task"
-require 'code_statistics'
 require 'rspec/core/rake_task'
 require 'yard'
 require 'yard/rake/yardoc_task.rb'
