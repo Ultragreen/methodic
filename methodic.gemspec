@@ -9,7 +9,6 @@ Gem::Specification.new do |s|
   s.description = %q{Methodic : provide Hash table options arguments manager (specifications and validations}
   s.has_rdoc = true
   s.files = Dir['*/*/*/*'] + Dir['*/*/*'] + Dir['*/*'] + Dir['*']
-  s.bindir = nil
   s.required_ruby_version = '>= 1.8.1'
   s.add_development_dependency "rspec", ">= 2.0.0"
   s.rdoc_options << '--title' << 'Methodic : Gem documentation' << '--main' << 'doc/manual.rdoc' << '--line-numbers' 
