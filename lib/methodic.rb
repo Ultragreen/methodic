@@ -7,6 +7,7 @@
 # obj : Methodic Module
 #---
 
+
 # inherited List class from Array to patch push for uniqness carateristique 
 class List < Array
 
@@ -300,6 +301,7 @@ module Methodic
     end
     alias :validate! :validate
     
+    # here become private
     private
     # private method for the formats validation step
     def validate_formats
