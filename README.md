@@ -9,6 +9,7 @@
 
 [![Build Status](https://travis-ci.org/lecid/methodic.png?branch=master)](https://travis-ci.org/lecid/methodic) [![CodeClimate](https://codeclimate.com/github/lecid/methodic.png)](https://codeclimate.com/github/lecid/methodic)
 [![Dependency Status](https://gemnasium.com/lecid/methodic.png)](https://gemnasium.com/lecid/methodic)
+[![Gem Version](https://badge.fury.io/rb/methodic.png)](http://badge.fury.io/rb/methodic)
 
 ## Description 
 
