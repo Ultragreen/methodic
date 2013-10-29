@@ -1,6 +1,6 @@
 require'rubygems'
 require'rspec'
-require 'lib/methodic'
+require 'methodic'
 
 describe Methodic do
  

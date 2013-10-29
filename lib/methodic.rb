@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-# -*- coding: undecided -*-
-# Copyright Ultragreen (c) 2012-2Â013
+# -*- coding: utf-8 -*-
+# Copyright Ultragreen (c) 2012-2Ã‚013
 #---
 # Author : Romain GEORGES 
 # type : gem component library 
