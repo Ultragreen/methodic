@@ -66,8 +66,12 @@ describe Methodic do
         
       end
       context "#defaults R/W" do
+
         it { $test_methodic_options.should respond_to("defaults") }
         it { $test_methodic_options.should respond_to("defaults=") }
+
+        it { $test_methodic_options.should respond_to("toto") }
+        it { $test_methodic_options.should respond_to("toto=") }
         
         it "should be true that #defaults must return a Hash" do
           $test_methodic_options.defaults.class.should eq(Hash)
@@ -79,6 +83,8 @@ describe Methodic do
       end
 
       context "#formats R/W" do
+
+
         it { $test_methodic_options.should respond_to("formats") }
         it { $test_methodic_options.should respond_to("formats=") }
         

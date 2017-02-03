@@ -132,6 +132,7 @@ module Methodic
     #   p myOptions.defaults 
     #   => { :name => /\w+/, :surname => /\w+/ }
     attr_accessor :formats
+    attr_accessor :toto
     
     # @attr [Hash] conditions a hash table of some conditions with their corresponding
     # @example writing
@@ -152,9 +153,18 @@ module Methodic
     # @return [Options] self
     def initialize(_options = {},_validate_known_options = false)
 
-      raise ArgumentError::new('Argument _options must be a Hash') unless _options.class == Hash or _options.class == Methodic::Options # ;) reintrance and cascading
-      raise ArgumentError::new('keys must be Symbol') unless _options.keys.select{|i| i.class == Symbol }.size ==  _options.keys.size 
-      self.replace _options
+      raise ArgumentError::new('Argument _options must be a Hash') unless _options.class == Hash or _options.class == Methodic::Options or _options.class == DRb::DRbObject
+      # ;) reintrance and cascading
+      raise ArgumentError::new('keys must be Symbol') unless _options.keys.select{|i| i.class == Symbol }.size ==  _options.keys.size
+      if _options.class == DRb::DRbObject then
+        self.clear
+        _options.each  do |key,value|
+          self[key] = value
+        end
+      else
+        self.replace _options
+      end
+      
       @conditions = Hash::new
       @defaults = Hash::new
       @formats = Hash::new
