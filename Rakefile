@@ -1,6 +1,6 @@
 # coding: utf-8
+require "bundler/gem_tasks"
 require 'rubygems'
-
 require 'rspec'
 require 'rake'
 require "rake/clean"
@@ -13,7 +13,6 @@ require "rake/tasklib"
 require "roodi"
 require "roodi_task"
 require 'code_statistics'
-
 
 RoodiTask.new() do | t |
 t.patterns = %w(lib/**/*.rb)
