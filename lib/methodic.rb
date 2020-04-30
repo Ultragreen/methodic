@@ -1,18 +1,18 @@
-#!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
+# coding: utf-8
 # Copyright Ultragreen (c) 2012-2Â013
 #---
-# Author : Romain GEORGES 
-# type : gem component library 
+# Author : Romain GEORGES
+# type : gem component library
 # obj : Methodic Module
 #---
 
+require 'drb'
 
-# inherited List class from Array to patch push for uniqness carateristique 
+# inherited List class from Array to patch push for uniqness carateristique
 class List < Array
 
   # override of push for uniqness and flatten return
-  def push(*value) 
+  def push(*value)
     super(value)
     self.flatten!
     self.uniq!
@@ -31,12 +31,12 @@ class List < Array
 end
 
 
-# module Methodic 
+# module Methodic
 # @author Romain GEORGES <romain@ultragreen.net>
 # @see http://www.ultragreen.net/projects/methodic
 # @version 0.2
 # @note this module include a class, but please use the module method Methodic::get_options to Build a Methodic::Options instance
-# @example Complete usage 
+# @example Complete usage
 #    require 'rubygems'
 #    require 'methodic'
 #    [...]
@@ -45,7 +45,7 @@ end
 #      myOptions = Methodic::get_options(_options,true) do |m|
 #        m.specify_known_options [:country,:name,:surname,:age]
 #        m.specify_default_value :country => 'France'
-#        aCond = Proc::new {|option| case options when 'Doe' then true else false end } 
+#        aCond = Proc::new {|option| case options when 'Doe' then true else false end }
 #        m.specify_condition_for :name => aCond
 #        m.specify_classes_of :name => String, :surname => String, :age => Fixnum, :country => String
 #        m.specify_presence_of :name
@@ -61,7 +61,7 @@ module Methodic
   # class Options
   # an Options utility class
   # @note please do not instantiate with Options::new use Methodic::get_options
-  # @example Complete usage 
+  # @example Complete usage
   #    require 'rubygems'
   #    require 'methodic'
   #    [...]
@@ -70,7 +70,7 @@ module Methodic
   #      myOptions = Methodic::get_options(_options,true) do |m|
   #        m.specify_known_options [:country,:name,:surname,:age]
   #        m.specify_default_value :country => 'France'
-  #        aCond = Proc::new {|option| case options when 'Doe' then true else false end } 
+  #        aCond = Proc::new {|option| case options when 'Doe' then true else false end }
   #        m.specify_condition_for :name => aCond
   #        m.specify_classes_of :name => String, :surname => String, :age => Fixnum, :country => String
   #        m.specify_presence_of :name
@@ -88,17 +88,17 @@ module Methodic
     #   myOptions.known = [:name]
     #   myOptions.known.push :surname
     # @example reading
-    #   p myOptions.known 
+    #   p myOptions.known
     #   => [ :name, :surname ]
-    # @attr [Hash] the list of all options assumed for a method 
+    # @attr [Hash] the list of all options assumed for a method
    attr_accessor :known
-    
+
     # @example writing
     #   myOptions = Methodic::get_options(options)
     #   myOptions.classes = {:name => String }
     #   myOptions.classes[:surname] = String
     # @example reading
-    #   p myOptions.classes 
+    #   p myOptions.classes
     #   => { :name => String, :surname => String }
     # @attr [Hash] classes a hash table of some options associated with their corresponding types or classes
    attr_accessor :classes
@@ -109,7 +109,7 @@ module Methodic
     #   myOptions.mandatories = [:name]
     #   myOptions.mandatories.push :surname
     # @example reading
-    #   p myOptions.mandatories 
+    #   p myOptions.mandatories
     #   => [ :name, :surname ]
     attr_accessor :mandatories
 
@@ -119,7 +119,7 @@ module Methodic
     #   myOptions.defaults = {:name => 'John' }
     #   myOptions.defaults[:surname] = 'Doe'
     # @example reading
-    #   p myOptions.defaults 
+    #   p myOptions.defaults
     #   => { :name => 'John', :surname => 'Doe' }
     attr_accessor :defaults
 
@@ -129,18 +129,18 @@ module Methodic
     #   myOptions.formats = {:name => /\w+/ }
     #   myOptions.formats[:surname] = /\w+/
     # @example reading
-    #   p myOptions.defaults 
+    #   p myOptions.defaults
     #   => { :name => /\w+/, :surname => /\w+/ }
     attr_accessor :formats
     attr_accessor :toto
-    
+
     # @attr [Hash] conditions a hash table of some conditions with their corresponding
     # @example writing
     #   myOptions = Methodic::get_options(options)
     #   myOptions.conditions = {:name => aProcObject }
     #   myOptions.conditions[:surname] = aProcObject
     # @example reading
-    #   p myOptions.defaults 
+    #   p myOptions.defaults
     #   => { :name => /\w+/, :surname => /\w+/ }
     attr_accessor :conditions
 
@@ -164,7 +164,7 @@ module Methodic
       else
         self.replace _options
       end
-      
+
       @conditions = Hash::new
       @defaults = Hash::new
       @formats = Hash::new
@@ -174,7 +174,7 @@ module Methodic
       @validate_known_options = _validate_known_options
       yield self if block_given?
     end
-    
+
 
     # read only accessor on the [Hash] slef keys
     # @return [Array] self.keys the keys of The Options object itself
@@ -182,13 +182,13 @@ module Methodic
     #   options = {:name => 'Doe', :surname => 'John'}
     #   p myOptions = Methodic::get_options(options)
     #   => { :name => String, :surname => String }
-    #   p myOptions.options 
+    #   p myOptions.options
     #   => [:name, :surname]
-    def options 
+    def options
       return self.keys
     end
 
-    
+
     # pretty accessor for specifying the default(s) value(s)  for options
     # @param [Hash] values a value definition, keys are symbols
     # @return [hash] @defaults merged with values
@@ -201,7 +201,7 @@ module Methodic
       return @defaults
    end
     alias :specify_defaults_values :specify_default_value
-    
+
     # pretty accessor for specifying classes of options
     # @param [Hash] values a value definition, keys are symbols
     # @return [hash] @classes merged with values
@@ -232,19 +232,19 @@ module Methodic
     alias :specify_conditions_for :specify_condition_for
 
 
-    
+
     # pretty accessor for specifying mandatories options
     # @param [Array] values a Array of symbols or a unique symbol
     # @return [Array] @mandatories merged with values
     # @example usage
     #    myOptions = Methodic::get_options(_options)
-    #    myOptions.specify_presence_of :name 
+    #    myOptions.specify_presence_of :name
     #    myOptions.specify_presences_of [ :name, :surname ]
-    def specify_presence_of(*values) 
+    def specify_presence_of(*values)
       @mandatories << values
       @mandatories.flatten!
       @mandatories.uniq!
-      return @mandatories 
+      return @mandatories
     end
     alias :specify_presences_of :specify_presence_of
 
@@ -254,16 +254,16 @@ module Methodic
     # @return [Array] @known merged with values
     # @example usage
     #    myOptions = Methodic::get_options(_options)
-    #    myOptions.specify_known_option :name 
+    #    myOptions.specify_known_option :name
     #    myOptions.specify_known_options [ :name, :surname ]
-    def specify_known_option(*values) 
+    def specify_known_option(*values)
       @known << values
       @known.flatten!
       @known.uniq!
-      return @known 
+      return @known
     end
     alias :specify_known_options :specify_known_option
-    
+
     # pretty accessor for specifying the format of options
     # @param [Hash] values a value definition, keys are symbols
     # @return [hash] @formats merged with values
@@ -277,19 +277,19 @@ module Methodic
       return @formats
     end
     alias :specify_formats_of :specify_format_of
-    
-    
-    # default values merge method 
-    # merge @defaults with self 
+
+
+    # default values merge method
+    # merge @defaults with self
     # @return [self|Options]
     # @example usage
     #    myOptions = Methodic::get_options(:name = 'Walker')
     #    myOptions.specify_default_value_of :surname => 'John'
-    #    p myOptions                                                                                                                                                                                  
+    #    p myOptions
     #      # =>{:surname=>"John", :name=>"Doe"}
     #    myOptions.merge
     #    p myOptions
-    #      # =>{:surname=>"John", :name=>"Walker"} 
+    #      # =>{:surname=>"John", :name=>"Walker"}
     def merge_with_defaults
       self.replace( @defaults.merge self)
       return self
@@ -307,20 +307,20 @@ module Methodic
       table.push validate_presences unless @mandatories.empty?
       table.push validate_formats unless @formats.empty?
       table.push validate_conditions unless @conditions.empty?
-      return true unless table.include?(false) 
+      return true unless table.include?(false)
     end
     alias :validate! :validate
-    
+
     # here become private
     private
     # private method for the formats validation step
     def validate_formats
       self.each do |option,value|
         if @formats.key? option then
-          raise ArgumentError::new("Option : #{option} don't match  /#{@formats[option]}/") and return false unless value =~ @formats[option] 
+          raise ArgumentError::new("Option : #{option} don't match  /#{@formats[option]}/") and return false unless value =~ @formats[option]
         end
       end
-      
+
       return true
     end
 
@@ -379,6 +379,6 @@ module Methodic
   def Methodic::get_options(_options = {},_validate_known_options=false)
     return Methodic::Options::new(_options,_validate_known_options)
   end
- 
+
 
 end
